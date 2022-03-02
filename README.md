@@ -1,4 +1,4 @@
-# GPO-IKS
+# GPO IKS
 
 This code repository is a DevOps project that is a subset of the [FSO Lab DevOps](https://github.com/APO-SRE/fso-lab-devops) 
 project. Its specific purpose is to help automate the deployment of Intersight IKS resources via Terraform for 

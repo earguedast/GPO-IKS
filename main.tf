@@ -1,64 +1,71 @@
+# Providers ----------------------------------------------------------------------------------------
 provider "intersight" {
   apikey    = var.apikey
   secretkey = var.secretkey
   endpoint  = var.endpoint
 }
 
+# Modules ------------------------------------------------------------------------------------------
 module "iks_cluster" {
   source  = "terraform-cisco-modules/iks/intersight"
-  version = "2.1.2"
+  version = "2.3.0"
 
   ip_pool = {
-    use_existing        = true
-    name                = "GPO-FSO-IKS-IP-POOL"
-}
+    use_existing = true
+    name         = "GPO-FSO-IKS-IP-POOL"
+  }
 
   sysconfig = {
     use_existing = true
     name         = "GPO-FSO-IKS-NODE-OS-CONFIG"
-}
+  }
 
   k8s_network = {
     use_existing = true
-    name         = "GPO-FSO-IKS-NETWORK-CIDR"  
+    name         = "GPO-FSO-IKS-NETWORK-CIDR"
   }
-  # Version policy
+
+  # Version policy.
   versionPolicy = {
     useExisting = true
-    policyName         = "GPO-FSO-K8S-VERSION"
+    policyName  = "GPO-FSO-K8S-VERSION"
   }
-    tr_policy = {
+
+  tr_policy = {
     use_existing = false
     create_new   = false
     name         = "trusted-registry"
   }
+
   runtime_policy = {
     use_existing = false
     create_new   = false
-    # name                 = "runtime"
-    # http_proxy_hostname  = "t"
-    # http_proxy_port      = 80
-    # http_proxy_protocol  = "http"
-    # http_proxy_username  = null
-    # http_proxy_password  = null
-    # https_proxy_hostname = "t"
-    # https_proxy_port     = 8080
-    # https_proxy_protocol = "https"
-    # https_proxy_username = null
-    # https_proxy_password = null
+
+#   name                 = "runtime"
+#   http_proxy_hostname  = "t"
+#   http_proxy_port      = 80
+#   http_proxy_protocol  = "http"
+#   http_proxy_username  = null
+#   http_proxy_password  = null
+#   https_proxy_hostname = "t"
+#   https_proxy_port     = 8080
+#   https_proxy_protocol = "https"
+#   https_proxy_username = null
+#   https_proxy_password = null
   }
 
-  # Infra Config Policy Information
+  # Infra Config Policy Information.
   infraConfigPolicy = {
-    use_existing     = true
-    policyName             = "GPO-FSO-VM-INFRA-CONFIG-2401"
-}
+    use_existing = true
+    policyName   = "GPO-FSO-VM-INFRA-CONFIG-2401"
+  }
 
   instance_type = {
     use_existing = true
     name         = "GPO-FSO-VM-INSTANCE-TYPE-IKS"
-  }    
-  # Cluster information
+  }
+
+  # Cluster information.
   cluster = {
     name                = var.cluster_name
     action              = "Deploy"
@@ -70,7 +77,8 @@ module "iks_cluster" {
     ssh_user            = "iksadmin"
     ssh_public_key      = var.sshkey
   }
-  # Organization and Tag
+
+  # Organization and Tags.
   organization = var.organization
   tags         = var.tags
 }

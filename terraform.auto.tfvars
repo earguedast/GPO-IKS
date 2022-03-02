@@ -1,17 +1,26 @@
-# Required Varilables
+# Required Variables.
 apikey       = ""
 vc_password  = ""
 ssh_user     = "iksadmin"
 ssh_key      = ""
-# Optional Variables
+
+# Optional Variables.
 tags = [
   {
-    "key" : "key-1"
-    "value" : "value-1"
+    "key" : "Environment"
+    "value" : "Cisco One Lab"
   },
   {
-    "key" : "key-2"
-    "value" : "value-2"
+    "key" : "Owner"
+    "value" : "Cisco APO Cross-Architecture and AppDynamics Cloud Channel Sales Teams"
+  },
+  {
+    "key" : "Project"
+    "value" : "GPO-IKS"
+  },
+  {
+    "key" : "Event"
+    "value" : "FSO Lab Workshop"
   }
 ]
 organization = "default" # Change this if a different org is required.  Default org is set to "default"

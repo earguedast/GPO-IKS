@@ -52,9 +52,3 @@ variable "action_type" {
   type        = string
   default     = "Unassign"
 }
-
-variable "action_type" {
-  description = "Cluster action - unassign, deploy, etc"
-  type = string
-  default = "Unassign"
-}

@@ -2,7 +2,7 @@
 apikey       = ""
 vc_password  = ""
 ssh_user     = "iksadmin"
-sshkey      = ""
+sshkey       = ""
 
 # Optional Variables.
 tags = [

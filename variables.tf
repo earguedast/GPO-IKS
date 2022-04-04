@@ -1,39 +1,54 @@
+# Variables ----------------------------------------------------------------------------------------
 variable "apikey" {
+  description = "Intersight API Key."
   type        = string
-  description = "API Key"
 }
+
 variable "secretkey" {
+  description = "Intersight Secret Key or file location."
   type        = string
-  description = "Secret Key or file location"
 }
+
 variable "endpoint" {
+  description = "Intersight API Endpoint URL."
   type        = string
-  description = "API Endpoint URL"
   default     = "https://www.intersight.com"
 }
+
 variable "organization" {
+  description = "Intersight organization name."
   type        = string
-  description = "Organization Name"
   default     = "default"
 }
+
 variable "ssh_user" {
+  description = "SSH Username for IKS node login."
   type        = string
-  description = "SSH Username for node login."
 }
+
 variable "sshkey" {
+  description = "SSH Public Key to be used for IKS node login."
   type        = string
-  description = "SSH Public Key to be used to node login."
 }
+
 variable "vc_password" {
-  sensitive   = true
+  description = "Password of the account to be used with vCenter. This should be the password for the account used to register vCenter with Intersight."
   type        = string
-  description = "Password of the account to be used with vCenter.  This should be the password for the account used to register vCenter with Intersight."
+  sensitive   = true
 }
+
 variable "tags" {
   type    = list(map(string))
   default = []
 }
+
 variable "cluster_name" {
-  type = string
   description = "Name of IKS Cluster."
+  type        = string
+}
+
+variable "action_type" {
+  description = "Cluster action: 'Unassign', 'Deploy', 'Delete', etc."
+  type        = string
+  default     = "Unassign"
 }

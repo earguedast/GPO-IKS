@@ -8,7 +8,7 @@ provider "intersight" {
 # Modules ------------------------------------------------------------------------------------------
 module "iks_cluster" {
   source  = "terraform-cisco-modules/iks/intersight"
-  version = "2.3.0"
+  version = "2.4.0"
 
   ip_pool = {
     use_existing = true
@@ -68,7 +68,7 @@ module "iks_cluster" {
   # Cluster information.
   cluster = {
     name                = var.cluster_name
-    action              = "Deploy"
+    action              = var.action_type
     wait_for_completion = false
     worker_nodes        = 2
     load_balancers      = 1

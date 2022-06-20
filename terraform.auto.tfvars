@@ -8,7 +8,7 @@ sshkey       = ""
 tags = [
   {
     "key" : "EnvironmentHome"
-    "value" : "Cisco One Lab"
+    "value" : "dCloud FSO LAB"
   },
   {
     "key" : "Owner"
